@@ -1,0 +1,371 @@
+:root {
+    --primary: #12372a;
+    /* Dark Elegant Green */
+    --secondary: #436850;
+    /* Sage Green */
+    --accent: #ad8b3a;
+    /* Deep Gold */
+    --white: #fbfada;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: var(--white);
+    color: var(--primary);
+}
+
+/* Navigation */
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 8%;
+    background: white;
+
+    /* FIX STARTS HERE */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    /* Keeps it on top of other elements */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    /* Optional: adds a nice shadow when it sticks */
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--primary);
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--primary);
+    font-weight: 600;
+}
+
+/* Hero Section */
+.hero {
+    padding: 80px 8%;
+    background: linear-gradient(135deg, #12372a 0%, #436850 100%);
+    color: white;
+}
+
+.hero-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+}
+
+.hero-text h1 {
+    font-size: 3.5rem;
+    line-height: 1.2;
+}
+
+.hero-text span {
+    color: var(--accent);
+}
+
+.hero-image img {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 20px;
+    border: 5px solid var(--accent);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* Grid and Cards */
+.section {
+    padding: 80px 8%;
+    text-align: center;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.card {
+    background: white;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+}
+
+/* Contact Form */
+.contact-area {
+    background: #f0f0f0;
+    padding: 80px 8%;
+}
+
+.contact-container {
+    display: flex;
+    gap: 100px;
+    max-width: 1100px;
+    margin: 0 auto;
+    align-items: center;
+}
+
+.contact-info {
+    align-items: center;
+}
+
+.contact-form {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.contact-form input,
+.contact-form select,
+.contact-form textarea {
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+}
+
+.btn {
+    background: var(--accent);
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+}
+
+/* Responsive Media Queries */
+@media (max-width: 968px) {
+    .hero-container {
+        flex-direction: column-reverse;
+        text-align: center;
+    }
+
+    .contact-container {
+        flex-direction: column;
+        gap: 50px;
+    }
+
+    .hero-text h1 {
+        font-size: 2.5rem;
+    }
+}
+
+.main-footer {
+    background-color: var(--primary);
+    color: white;
+    padding: 50px 8% 20px 8%;
+    text-align: center;
+    margin-top: 50px;
+}
+
+.footer-content {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.footer-logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: var(--accent);
+    margin-bottom: 20px;
+    font-family: 'Amiri', serif;
+}
+
+.footer-socials {
+    margin-bottom: 25px;
+}
+
+.footer-socials a {
+    color: white;
+    font-size: 1.5rem;
+    margin: 0 15px;
+    transition: color 0.3s ease;
+}
+
+/* 1. Hide the hamburger by default (for Laptops/Desktops) */
+.hamburger {
+    display: none;
+    font-size: 2rem;
+    cursor: pointer;
+    color: var(--primary);
+}
+
+/* 2. Create the Mobile Rule */
+@media (max-width: 968px) {
+
+    /* Show the hamburger only on screens smaller than 968px */
+    .hamburger {
+        display: block;
+    }
+
+    /* Hide the text links on mobile until the menu is toggled */
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        background: white;
+        padding: 20px;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    /* When the menu is active/clicked */
+    .nav-links.active {
+        display: flex;
+    }
+}
+/* Centering the Contact Area */
+.contact-area {
+    padding: 80px 8%;
+    background: #f4f4f4; /* Light grey background to separate from courses */
+    text-align: center; /* Centers all text inside */
+}
+
+.contact-container {
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
+    align-items: center;    /* Center elements horizontally */
+    justify-content: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.contact-info h2 {
+    font-size: 2.5rem;
+    color: var(--primary);
+    margin-bottom: 10px;
+}
+
+.info-item {
+    font-size: 1.5rem;
+    margin: 20px 0;
+    color: var(--primary);
+    font-weight: bold;
+}
+
+/* Make the WhatsApp Icon big and attractive in the center */
+.social-icons {
+    margin-top: 20px;
+}
+
+.social-icons a {
+    font-size: 3.5rem; /* Larger icon for better visibility */
+    color: #25d366;    /* WhatsApp Green */
+    transition: transform 0.3s ease;
+    display: inline-block;
+}
+/* Loader Background */
+#loader-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #12372a; /* Matches your primary green */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999; /* Stays above everything */
+    transition: opacity 0.5s ease;
+}
+
+/* The Spinner */
+.loader {
+    border: 5px solid rgba(255, 255, 255, 0.1);
+    border-top: 5px solid #ad8b3a; /* Your Gold color */
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+    margin-bottom: 15px;
+}
+
+#loader-wrapper p {
+    color: white;
+    font-family: 'Segoe UI', sans-serif;
+    letter-spacing: 1px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Class to hide the loader */
+.loader-hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+.social-icons a:hover {
+    transform: scale(1.2); /* Pop effect on hover */
+}
+/* Apply to Logo */
+.logo {
+    font-family: 'Amiri', serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--primary);
+    letter-spacing: 1px;
+}
+
+/* Apply to Main Hero Heading */
+.hero-text h1 {
+    font-family: 'Amiri', serif;
+    font-size: 4rem; /* Makes it bold and prominent */
+    line-height: 1.1;
+    margin-bottom: 20px;
+}
+
+/* Optional: Apply to Section Titles */
+.title, .contact-info h2 {
+    font-family: 'Amiri', serif;
+    font-weight: 700;
+}
+
+.footer-socials a:hover {
+    color: var(--accent);
+}
+
+.copyright {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 20px;
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+.designer {
+    font-size: 0.7rem;
+    margin-top: 10px;
+    opacity: 0.5;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}

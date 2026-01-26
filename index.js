@@ -9,19 +9,34 @@ document.addEventListener("DOMContentLoaded", () => {
             item.style.opacity = "1";
         }, i * 150);
     });
+});const modeBtn = document.getElementById('modeBtn');
+const body = document.body;
+
+// Check for saved user preference
+const savedTheme = localStorage.getItem('theme');
+if (savedTheme) {
+    body.classList.add(savedTheme);
+    updateIcon(savedTheme);
+}
+
+modeBtn.addEventListener('click', () => {
+    // Toggle the class
+    body.classList.toggle('dark-theme');
+    
+    // Determine current state
+    const isDark = body.classList.contains('dark-theme');
+    const theme = isDark ? 'dark-theme' : '';
+    
+    // Save preference
+    localStorage.setItem('theme', theme);
+    
+    // Update button icon
+    updateIcon(theme);
 });
 
-// Dark Mode Toggle
-const modeBtn = document.getElementById("modeBtn");
-modeBtn.addEventListener("click", () => {
-    document.body.classList.toggle("dark");
-
-    if (document.body.classList.contains("dark")) {
-        modeBtn.textContent = "☀️";
-    } else {
-        modeBtn.textContent = "🌙";
-    }
-});
+function updateIcon(theme) {
+    modeBtn.textContent = theme === 'dark-theme' ? '☀️' : '🌙';
+}
 function saveMsg() {
     let text = document.getElementById("msg").value;
 

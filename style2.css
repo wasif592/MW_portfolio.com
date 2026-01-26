@@ -2,11 +2,13 @@
 
 :root {
 
-    --primary: #6366f1;       /* Modern Indigo */
+    --primary: #6366f1;
+    /* Modern Indigo */
 
     --primary-dark: #4f46e5;
 
-    --accent: #a855f7;        /* Purple Accent */
+    --accent: #a855f7;
+    /* Purple Accent */
 
     --bg-light: #f8fafc;
 
@@ -14,17 +16,18 @@
 
     --card-bg: #ffffff;
 
-   
+
 
     /* Dark Mode Variables */
 
-    --bg-dark: #0f172a;       /* Deep Midnight */
+    --bg-dark: #0f172a;
+    /* Deep Midnight */
 
     --text-dark: #f1f5f9;
 
     --card-dark: #1e293b;
 
-   
+
 
     --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
@@ -76,7 +79,8 @@ nav {
 
     display: flex;
 
-    flex-direction: column; /* Stacked on mobile */
+    flex-direction: column;
+    /* Stacked on mobile */
 
     align-items: center;
 
@@ -92,7 +96,153 @@ nav {
 
 }
 
+/* Center the Heading */
+.projects h2 {
+    text-align: center;
+    margin-bottom: 30px;
+}
 
+/* Make the container smaller and centered */
+.projects-container {
+    display: grid;
+    /* This creates a responsive grid */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 300px));
+    gap: 30px;
+    justify-content: center;
+    /* Centers the cards horizontally */
+    max-width: 800px;
+    /* Limits the width of the whole section */
+    margin: 0 auto;
+    /* Centers the container on the page */
+    padding: 20px;
+}
+
+.project-card {
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: 0.3s;
+}
+
+/* Adjust image size inside cards */
+.project-card img {
+    width: 100%;
+    height: 180px;
+    /* Reduced height to make it "smaller" */
+    object-fit: cover;
+}
+
+/* --- Light Mode (Default) --- */
+.projects {
+    padding: 50px 20px;
+    background-color: #ffffff;
+    /* Light background */
+    transition: background-color 0.4s ease;
+}
+
+.project-card {
+    background: #fdfdfd;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.3s, background-color 0.4s, color 0.4s;
+}
+
+.project-info h3 {
+    color: #333;
+}
+
+.project-info p {
+    color: #666;
+}
+
+/* --- Dark Mode Styles --- */
+/* This triggers when 'dark-theme' class is added to <body> */
+body.dark-theme .projects {
+    background-color: #121212;
+}
+
+body.dark-theme .projects h2 {
+    color: #ffffff;
+}
+
+body.dark-theme .project-card {
+    background: #1e1e1e;
+    /* Darker card color */
+    border: 1px solid #333;
+}
+
+body.dark-theme .project-info h3 {
+    color: #ffffff;
+}
+
+body.dark-theme .project-info p {
+    color: #bbbbbb;
+}
+
+body.dark-theme .btn {
+    background-color: #ffffff;
+    color: #121212;
+}
+
+.project-info {
+    padding: 15px;
+    text-align: center;
+    /* Centers text inside the card */
+}
+
+/* 1. Define the Colors */
+:root {
+    --bg-color: #ffffff;
+    --text-color: #1a1a1a;
+    --card-bg: #f4f4f4;
+    --nav-bg: #ffffff;
+    --accent-color: #007bff;
+}
+
+/* 2. Define the Dark Colors */
+body.dark-theme {
+    --bg-color: #121212;
+    --text-color: #e0e0e0;
+    --card-bg: #1e1e1e;
+    --nav-bg: #181818;
+    --accent-color: #66b2ff;
+}
+
+/* 3. Apply variables to your elements */
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background-color 0.3s, color 0.3s;
+    margin: 0;
+    font-family: sans-serif;
+}
+
+nav {
+    background-color: var(--nav-bg);
+    border-bottom: 1px solid var(--card-bg);
+}
+
+.about-box,
+.project-card,
+.contact-container {
+    background-color: var(--card-bg);
+    color: var(--text-color);
+}
+
+a {
+    color: var(--accent-color);
+}
+
+#modeBtn {
+    background: none;
+    border: 1px solid var(--text-color);
+    color: var(--text-color);
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
 
 nav .logo {
 
@@ -210,7 +360,8 @@ nav ul li a:hover {
 
     object-fit: cover;
 
-    border-radius: 30px; /* Modern squircle */
+    border-radius: 30px;
+    /* Modern squircle */
 
     border: 4px solid rgba(255, 255, 255, 0.3);
 
@@ -224,7 +375,8 @@ nav ul li a:hover {
 
 .hero h1 {
 
-    font-size: clamp(2rem, 8vw, 3.5rem); /* Responsive font size */
+    font-size: clamp(2rem, 8vw, 3.5rem);
+    /* Responsive font size */
 
     margin-bottom: 10px;
 
@@ -234,7 +386,9 @@ nav ul li a:hover {
 
 /* --- 4. Main Content Areas --- */
 
-.about, .gallery, .contact {
+.about,
+.gallery,
+.contact {
 
     width: 90%;
 
@@ -256,7 +410,8 @@ nav ul li a:hover {
 
     border-radius: 24px;
 
-    margin-top: -50px; /* Overlap effect */
+    margin-top: -50px;
+    /* Overlap effect */
 
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
 
@@ -396,7 +551,8 @@ form {
 
 
 
-input, textarea {
+input,
+textarea {
 
     padding: 14px;
 
@@ -412,7 +568,8 @@ input, textarea {
 
 
 
-input:focus, textarea:focus {
+input:focus,
+textarea:focus {
 
     outline: none;
 
@@ -476,11 +633,14 @@ button:hover {
 
 
 
-.dark nav ul li a { color: var(--text-dark); }
+.dark nav ul li a {
+    color: var(--text-dark);
+}
 
 
 
-.dark .about, .dark .item {
+.dark .about,
+.dark .item {
 
     background: var(--card-dark);
 
@@ -488,11 +648,14 @@ button:hover {
 
 
 
-.dark .about p { color: #94a3b8; }
+.dark .about p {
+    color: #94a3b8;
+}
 
 
 
-.dark input, .dark textarea {
+.dark input,
+.dark textarea {
 
     background: #1e293b;
 
@@ -510,7 +673,8 @@ button:hover {
 
     nav {
 
-        flex-direction: row; /* Horizontal nav for desktop */
+        flex-direction: row;
+        /* Horizontal nav for desktop */
 
         justify-content: space-between;
 
@@ -518,7 +682,7 @@ button:hover {
 
     }
 
-   
+
 
     .about {
 
@@ -542,4 +706,4 @@ footer {
 
     text-align: center;
 
-} 
+}
